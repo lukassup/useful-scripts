@@ -29,10 +29,12 @@ def kb_light_inc():
     display_notification(percent)
     return percent
 
+
 def kb_light_dec():
     percent = kb_light_set(-1)
     display_notification(percent)
     return percent
+
 
 def display_notification(percent):
     Notify.init("Keyboard backlight changer")
@@ -41,7 +43,8 @@ def display_notification(percent):
     kb_light_notify.show()
     Notify.uninit()
 
-if len(argv[:1]) == 1:
+
+if len(argv[1:]) == 1:
     if argv[1] == "--up" or argv[1] == "+":
         kb_light_inc()
     elif argv[1] == "--down" or argv[1] == "-":
@@ -49,4 +52,5 @@ if len(argv[:1]) == 1:
     else:
         print("Unknown argument: " + argv[1])
 else:
-    print("Script takes exactly one argument." + len(argv[:1]) +  "provided.")
+    print("Script takes exactly one argument." + len(argv[1:]) +  "provided.")
+
